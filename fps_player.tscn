@@ -1,0 +1,98 @@
+[gd_scene load_steps=13 format=3 uid="uid://bnvo4l2v3cx1l"]
+
+[ext_resource type="Script" uid="uid://dkkmqyj5lyjv" path="res://fps_player.gd" id="1_iqdwj"]
+[ext_resource type="ArrayMesh" uid="uid://cb02bb1o06yas" path="res://assets/humane.obj" id="2_3yxx2"]
+[ext_resource type="Script" uid="uid://bm8dsny2so8mg" path="res://multiplayer_synchronizer.gd" id="2_rboy4"]
+[ext_resource type="ArrayMesh" uid="uid://c0d0n1ihoe0pc" path="res://assets/OBJ format/blasterE.obj" id="3_7vlri"]
+[ext_resource type="ArrayMesh" uid="uid://b47arujyh2384" path="res://assets/OBJ format/blasterH.obj" id="4_sv8u2"]
+[ext_resource type="Texture2D" uid="uid://u23b623d1qtd" path="res://assets/crosshair.png" id="5_xwa8u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cfqtm"]
+albedo_color = Color(0.184314, 0.847059, 1, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pimsc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gjvqx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gabpo"]
+albedo_texture = ExtResource("5_xwa8u")
+
+[sub_resource type="BoxMesh" id="BoxMesh_7cj85"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_xstnw"]
+properties/0/path = NodePath(".:rotation")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:position")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="FPSPlayer" type="CharacterBody3D"]
+script = ExtResource("1_iqdwj")
+
+[node name="PlayerCharacter" type="MeshInstance3D" parent="." groups=["player_characters"]]
+transform = Transform3D(-0.25, 0, 2.18557e-08, 0, 0.25, 0, -2.18557e-08, 0, -0.25, 0, 0.325201, 0)
+material_override = SubResource("StandardMaterial3D_cfqtm")
+mesh = ExtResource("2_3yxx2")
+
+[node name="Name" type="Label3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2.31985, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
+shape = SubResource("CapsuleShape3D_pimsc")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08165e-12, 0.00670934, -2.08165e-12)
+shape = SubResource("CapsuleShape3D_gjvqx")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.62957, 0.0369574)
+
+[node name="Shotgun" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(0.443104, 0.0624592, 0.223065, -0.0409818, 0.495024, -0.0572013, -0.227991, 0.032409, 0.443813, 0.0434076, -0.175034, -0.352669)
+mesh = ExtResource("3_7vlri")
+
+[node name="Shotgun2" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(0.00897837, 0.498815, -0.0332077, 0.0434079, 0.0323097, 0.497063, 0.498032, -0.0118086, -0.0427251, 0.0189891, -0.20241, 0.122507)
+mesh = ExtResource("4_sv8u2")
+
+[node name="crosshair" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(0.00223641, 0, 0, 0, 0.0293874, 0, 0, 0, 0.00906172, 0.00579152, -0.0271931, -0.743973)
+material_override = SubResource("StandardMaterial3D_gabpo")
+mesh = SubResource("BoxMesh_7cj85")
+skeleton = NodePath("../..")
+
+[node name="crosshair2" type="MeshInstance3D" parent="Camera3D/crosshair"]
+transform = Transform3D(0.826034, 0, 0, 0, 1, 0, 0, 0, 1, 0.188998, 1.66979, 0)
+material_override = SubResource("StandardMaterial3D_gabpo")
+mesh = SubResource("BoxMesh_7cj85")
+skeleton = NodePath("../../..")
+
+[node name="crosshair3" type="MeshInstance3D" parent="Camera3D/crosshair"]
+transform = Transform3D(-4.37114e-08, -13.1405, 0, 0.0761009, -4.37114e-08, 0, 0, 0, 1, -10.2225, 0.773857, 0)
+material_override = SubResource("StandardMaterial3D_gabpo")
+mesh = SubResource("BoxMesh_7cj85")
+skeleton = NodePath("../../..")
+
+[node name="crosshair4" type="MeshInstance3D" parent="Camera3D/crosshair"]
+transform = Transform3D(-4.37114e-08, -13.1405, 0, 0.0761009, -4.37114e-08, 0, 0, 0, 1, 10.2453, 0.773857, 0)
+material_override = SubResource("StandardMaterial3D_gabpo")
+mesh = SubResource("BoxMesh_7cj85")
+skeleton = NodePath("../../..")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 10.0
+offset_top = 15.0
+offset_right = 50.0
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 16
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_xstnw")
+script = ExtResource("2_rboy4")

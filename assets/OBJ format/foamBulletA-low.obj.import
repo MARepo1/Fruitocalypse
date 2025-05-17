@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ccvt37y2cictg"
+path="res://.godot/imported/foamBulletA-low.obj-5b0c4555410452e0315c5df5b58fbf1c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/foamBulletA-low.obj-5b0c4555410452e0315c5df5b58fbf1c.mesh"]
+
+source_file="res://assets/OBJ format/foamBulletA-low.obj"
+dest_files=["res://.godot/imported/foamBulletA-low.obj-5b0c4555410452e0315c5df5b58fbf1c.mesh", "res://.godot/imported/foamBulletA-low.obj-5b0c4555410452e0315c5df5b58fbf1c.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://sc0mexkdw1hj"]
+
+[ext_resource type="Script" uid="uid://cvb1aradmi0m3" path="res://Fruit/pineapple.gd" id="1_6lo10"]
+[ext_resource type="ArrayMesh" uid="uid://7hs50wg2wovr" path="res://assets/Fruit/Pineapple/Pineapple.obj" id="1_76hhi"]
+[ext_resource type="Texture2D" uid="uid://capia8k7ylppo" path="res://assets/Fruit/Texture/Textures.png" id="2_o5a1e"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x213w"]
+radius = 0.551853
+height = 2.25998
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2yvnx"]
+albedo_texture = ExtResource("2_o5a1e")
+
+[node name="Pineapple" type="Node3D"]
+
+[node name="Pineapple" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00897491, 0, 0)
+script = ExtResource("1_6lo10")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pineapple"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.346001, 0)
+shape = SubResource("CapsuleShape3D_x213w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pineapple"]
+mesh = ExtResource("1_76hhi")
+surface_material_override/0 = SubResource("StandardMaterial3D_2yvnx")

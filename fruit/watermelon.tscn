@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://cx173ekt5eu6d"]
+
+[ext_resource type="Script" uid="uid://0d58pos4scb1" path="res://Fruit/watermelon.gd" id="1_6gpid"]
+[ext_resource type="ArrayMesh" uid="uid://6o5ujdlfllaa" path="res://assets/Fruit/Watermellon/Watermellon.mtl.obj" id="1_dec0t"]
+[ext_resource type="Texture2D" uid="uid://capia8k7ylppo" path="res://assets/Fruit/Texture/Textures.png" id="2_gmqn2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nnrqm"]
+albedo_texture = ExtResource("2_gmqn2")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ci1wa"]
+radius = 0.720222
+height = 1.71345
+
+[node name="Watermelon" type="Node3D"]
+
+[node name="Watermelon" type="RigidBody3D" parent="."]
+script = ExtResource("1_6gpid")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Watermelon"]
+mesh = ExtResource("1_dec0t")
+surface_material_override/0 = SubResource("StandardMaterial3D_nnrqm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Watermelon"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.0356806)
+shape = SubResource("CapsuleShape3D_ci1wa")

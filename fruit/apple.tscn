@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://c46a11r1t2762"]
+
+[ext_resource type="ArrayMesh" uid="uid://cjaim2rlrkkh7" path="res://assets/Fruit/Apple/Apple.mtl.obj" id="1_3ohlr"]
+[ext_resource type="Script" uid="uid://cfwl1kuc8v4q6" path="res://Fruit/apple.gd" id="1_dwu6n"]
+[ext_resource type="Texture2D" uid="uid://capia8k7ylppo" path="res://assets/Fruit/Texture/Textures.png" id="2_bqr0s"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sbiar"]
+radius = 0.695431
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mmqq5"]
+albedo_texture = ExtResource("2_bqr0s")
+
+[node name="Apple" type="Node3D"]
+
+[node name="Apple" type="RigidBody3D" parent="."]
+script = ExtResource("1_dwu6n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Apple"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0153709, -0.0423555, -0.014878)
+shape = SubResource("SphereShape3D_sbiar")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Apple"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.0161838, 0.0621062, -0.0145037)
+mesh = ExtResource("1_3ohlr")
+surface_material_override/0 = SubResource("StandardMaterial3D_mmqq5")

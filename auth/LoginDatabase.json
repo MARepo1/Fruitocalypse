@@ -1,0 +1,22 @@
+{
+  "user1": {
+	"password":"test",
+	"avatar":"res://02.sending-and-receiving-data/Avatars/female_idle.png",
+	"name":"user1"
+  },
+  "user2": {
+	"password":"test",
+	"avatar":"res://02.sending-and-receiving-data/Avatars/player_idle.png",
+	"name":"user2"
+  },
+  "user3": {
+	"password":"test",
+	"avatar":"res://02.sending-and-receiving-data/Avatars/player_idle.png",
+	"name":"user3"
+  },
+  "user4": {
+	"password":"test",
+	"avatar":"res://02.sending-and-receiving-data/Avatars/player_idle.png",
+	"name":"user4"
+  }
+}

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjumg3nr2dpq3"]
+
+[ext_resource type="PackedScene" uid="uid://bgqowxm0xf7ml" path="res://fruit/orange.tscn" id="1_o3fp8"]
+
+[node name="Fruits" type="Node3D"]
+
+[node name="Orange" parent="." instance=ExtResource("1_o3fp8")]
+
+[editable path="Orange"]

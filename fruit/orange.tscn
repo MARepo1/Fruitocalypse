@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgqowxm0xf7ml"]
+
+[ext_resource type="ArrayMesh" uid="uid://c1iib4fw6t43e" path="res://assets/Fruit/Orange/Orange.mtl.obj" id="1_5pq4u"]
+[ext_resource type="Script" uid="uid://cnfvh762sthse" path="res://Fruit/orange.gd" id="1_78sjq"]
+[ext_resource type="Texture2D" uid="uid://capia8k7ylppo" path="res://assets/Fruit/Texture/Textures.png" id="2_pg750"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3wt6t"]
+albedo_texture = ExtResource("2_pg750")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4bi0t"]
+radius = 0.654333
+
+[node name="Orange" type="Node3D"]
+
+[node name="Orange" type="RigidBody3D" parent="."]
+script = ExtResource("1_78sjq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Orange"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0132788, 0.0373882, -0.0106061)
+mesh = ExtResource("1_5pq4u")
+surface_material_override/0 = SubResource("StandardMaterial3D_3wt6t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Orange"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0377559, 0.0668017, 0.0748419)
+shape = SubResource("SphereShape3D_4bi0t")

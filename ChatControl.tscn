@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://cipejc7qeey41"]
+
+[ext_resource type="Script" uid="uid://pimfwnxfljov" path="res://ChatControl.gd" id="1_ayv8k"]
+
+[node name="ChatControl" type="Control"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 650.0
+offset_top = -448.0
+offset_right = -17.0
+offset_bottom = -296.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_ayv8k")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 113.0
+grow_horizontal = 2
+follow_focus = true
+vertical_scroll_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+autowrap_mode = 3
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
